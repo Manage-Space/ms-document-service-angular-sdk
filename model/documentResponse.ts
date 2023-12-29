@@ -40,7 +40,7 @@ export interface DocumentResponse {
     /**
      * Expires At
      */
-    expiresAt?: string;
+    expiresAt: string | null;
     /**
      * Template type
      */

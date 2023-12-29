@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { GetTemplates200ResponseDataInner } from './getTemplates200ResponseDataInner';
+import { TemplateResponse } from './templateResponse';
 
 
 export interface GetTemplates200Response { 
-    data?: Array<GetTemplates200ResponseDataInner>;
+    data?: Array<TemplateResponse>;
     success?: boolean;
     error?: object;
 }
