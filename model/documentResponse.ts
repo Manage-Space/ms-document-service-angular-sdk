@@ -46,6 +46,10 @@ export interface DocumentResponse {
      */
     templateTypeId: DocumentResponse.TemplateTypeIdEnum;
     /**
+     * Template Name
+     */
+    templateName: string;
+    /**
      * Pre signed url to download the document
      */
     downloadUrl: string;
