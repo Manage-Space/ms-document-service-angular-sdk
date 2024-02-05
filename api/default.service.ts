@@ -37,8 +37,6 @@ import { GetTemplates200Response } from '../model/getTemplates200Response';
 // @ts-ignore
 import { InternalServerError500Response } from '../model/internalServerError500Response';
 // @ts-ignore
-import { TemplateResponse } from '../model/templateResponse';
-// @ts-ignore
 import { UnauthorizedError401Response } from '../model/unauthorizedError401Response';
 // @ts-ignore
 import { UpdateTemplateRequest } from '../model/updateTemplateRequest';
@@ -377,10 +375,10 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public createTemplate(orgId: string, createTemplateRequest: CreateTemplateRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'application/json;v&#x3D;1', context?: HttpContext}): Observable<TemplateResponse>;
-    public createTemplate(orgId: string, createTemplateRequest: CreateTemplateRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'application/json;v&#x3D;1', context?: HttpContext}): Observable<HttpResponse<TemplateResponse>>;
-    public createTemplate(orgId: string, createTemplateRequest: CreateTemplateRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'application/json;v&#x3D;1', context?: HttpContext}): Observable<HttpEvent<TemplateResponse>>;
-    public createTemplate(orgId: string, createTemplateRequest: CreateTemplateRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json' | 'application/json;v&#x3D;1', context?: HttpContext}): Observable<any> {
+    public createTemplate(orgId: string, createTemplateRequest: CreateTemplateRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json;v&#x3D;1', context?: HttpContext}): Observable<GetTemplates200Response>;
+    public createTemplate(orgId: string, createTemplateRequest: CreateTemplateRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json;v&#x3D;1', context?: HttpContext}): Observable<HttpResponse<GetTemplates200Response>>;
+    public createTemplate(orgId: string, createTemplateRequest: CreateTemplateRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json;v&#x3D;1', context?: HttpContext}): Observable<HttpEvent<GetTemplates200Response>>;
+    public createTemplate(orgId: string, createTemplateRequest: CreateTemplateRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json;v&#x3D;1', context?: HttpContext}): Observable<any> {
         if (orgId === null || orgId === undefined) {
             throw new Error('Required parameter orgId was null or undefined when calling createTemplate.');
         }
@@ -401,7 +399,6 @@ export class DefaultService {
         if (localVarHttpHeaderAcceptSelected === undefined) {
             // to determine the Accept header
             const httpHeaderAccepts: string[] = [
-                'application/json',
                 'application/json;v=1'
             ];
             localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
@@ -437,7 +434,7 @@ export class DefaultService {
         }
 
         let localVarPath = `/document/orgs/${this.configuration.encodeParam({name: "orgId", value: orgId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: "uuid"})}/templates`;
-        return this.httpClient.request<TemplateResponse>('post', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<GetTemplates200Response>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 body: createTemplateRequest,
